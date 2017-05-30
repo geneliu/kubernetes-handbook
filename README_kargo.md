@@ -6,4 +6,4 @@ Kubernetes是谷歌开源的容器集群管理系统，是Google多年大规模�
 - Instal dashboard (TODO - traefik-ingress??)
 - Install heapster
 - Install keeplived (refer to service-discovery-lb)
-- Install traefik-ingress (refer to the updated manifests)
+- Install traefik-ingress (refer to the updated manifests and traefik website)
