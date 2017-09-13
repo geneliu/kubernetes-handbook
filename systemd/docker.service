@@ -8,6 +8,9 @@ Requires=docker-cleanup.timer
 [Service]
 Type=notify
 NotifyAccess=all
+EnvironmentFile=-/run/flannel/docker
+EnvironmentFile=-/run/docker_opts.env
+EnvironmentFile=-/run/flannel/subnet.env
 EnvironmentFile=-/etc/sysconfig/docker
 EnvironmentFile=-/etc/sysconfig/docker-storage
 EnvironmentFile=-/etc/sysconfig/docker-network
