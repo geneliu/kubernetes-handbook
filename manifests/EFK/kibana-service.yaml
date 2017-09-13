@@ -10,8 +10,11 @@ metadata:
     kubernetes.io/name: "Kibana"
 spec:
   ports:
-  - port: 5601
+  - name: web
+    port: 5601
     protocol: TCP
     targetPort: ui
   selector:
     k8s-app: kibana-logging
+  type: ExternalName
+  externalName: kibana.local
