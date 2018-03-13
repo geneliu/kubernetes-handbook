@@ -12,7 +12,7 @@
 
 ![Kubernetes集群中的监控](../images/monitoring-in-kubernetes.png)
 
-跟物理机器和虚拟机的监控不同，在kuberntes集群中的监控复杂度更高一些，因为多了一个虚拟化层，当然这个跟直接监控docker容器又不一样，kubernetes在docker之上又抽象了一层service的概念。
+跟物理机器和虚拟机的监控不同，在kubernetes集群中的监控复杂度更高一些，因为多了一个虚拟化层，当然这个跟直接监控docker容器又不一样，kubernetes在docker之上又抽象了一层service的概念。
 
 在kubernetes中的监控需要考虑到这几个方面：
 
@@ -196,7 +196,7 @@ Kubernetes中应用的监控架构如图：
 
 我们在kubernetes集群上使用standalone方式安装，详情参考[Installing Weave Scope](https://www.weave.works/docs/scope/latest/installing/#k8s)。
 
-使用[scope.yaml](../manifests/weave/scope.yaml)文件安装scope，该服务安装在`kube-system` namespace下。
+使用[scope.yaml](https://github.com/rootsongjc/kubernetes-handbook/blob/master/manifests/weave/scope.yaml)文件安装scope，该服务安装在`kube-system` namespace下。
 
 ```Bash
 $ kubectl apply -f scope.yaml

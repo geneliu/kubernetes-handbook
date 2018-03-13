@@ -1,33 +1,64 @@
 {
-    "title": "Kubernetes Handbook",
-    "description": "Let's play fun with kubernetes!",
-    "language": "zh-cn",
+    "title": "Kubernetes Handbook - jimmysong.io",
+    "description": "Kubernetes中文指南/实践手册|kubernetes handbook|jimmysong.io|宋净超",
+    "language": "zh-hans",
     "author": "Jimmy Song",
+    "links": {
+        "sidebar": {
+            "Jimmy Song": "https://jimmysong.io"
+        }
+    },
     "plugins": [
         "github",
         "codesnippet",
         "splitter",
         "page-toc-button",
         "image-captions",
-        "page-footer-ex",
         "editlink",
-        "-lunr", "-search", "search-plus"
+        "back-to-top-button",
+        "-lunr", "-search", "search-plus",
+        "github-buttons@2.1.0",
+        "favicon@^0.0.2",
+        "tbfed-pagefooter@^0.0.1",
+        "3-ba",
+        "theme-default",
+        "-highlight", "prism", "prism-themes"
     ],
     "pluginsConfig": {
+        "theme-default": {
+            "showLevel": true
+        },
         "github": {
             "url": "https://github.com/rootsongjc/kubernetes-handbook"
         },
         "editlink": {
             "base": "https://github.com/rootsongjc/kubernetes-handbook/blob/master/",
             "label": "编辑本页"
+        },
+        "image-captions": {
+            "caption": "图片 - _CAPTION_"
+        },
+        "github-buttons": {
+            "repo": "rootsongjc/kubernetes-handbook",
+            "types": ["star"],
+            "size": "small"
+        },
+        "tbfed-pagefooter": {
+            "copyright": "Copyright © jimmysong.io 2017-2018",
+            "modify_label": "Updated at ",
+            "modify_format": "YYYY-MM-DD HH:mm:ss"
+        },
+        "favicon": {
+            "shortcut": "favicon.ico",
+            "bookmark": "favicon.ico"
+        },
+        "3-ba": {
+            "token": "11f7d254cfa4e0ca44b175c66d379ecc"
+        },
+        "prism": {
+            "css": [
+            "prism-themes/themes/prism-ghcolors.css"
+            ]
         }
-    },
-    "page-footer-ex": {
-        "copyright": "Jimmy Song",
-        "update_label": "最后更新：",
-        "update_format": "YYYY-MM-DD HH:mm:ss"
-    },
-    "image-captions": {
-        "caption": "图片 - _CAPTION_"
     }
 }

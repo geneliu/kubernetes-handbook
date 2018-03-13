@@ -10,7 +10,7 @@ Kubernetes设计理念和功能其实就是一个类似Linux的分层架构，�
 
 ![分层架构示意图](../images/kubernetes-layers-arch.jpg)
 
-* 核心层：Kubernetes最核心的功能，对外提供API构建高层的应用，最内提供插件式应用执行环境
+* 核心层：Kubernetes最核心的功能，对外提供API构建高层的应用，对内提供插件式应用执行环境
 * 应用层：部署（无状态应用、有状态应用、批处理任务、集群应用等）和路由（服务发现、DNS解析等）
 * 管理层：系统度量（如基础设施、容器和网络的度量），自动化（如自动扩展、动态Provision等）以及策略管理（RBAC、Quota、PSP、NetworkPolicy等）
 * 接口层：kubectl命令行工具、客户端SDK以及集群联邦
@@ -114,9 +114,9 @@ Secret是用来保存和传递密码、密钥、认证凭证这些敏感信息�
 
 顾名思义，用户帐户为人提供账户标识，而服务账户为计算机进程和Kubernetes集群中运行的Pod提供账户标识。用户帐户和服务帐户的一个区别是作用范围；用户帐户对应的是人的身份，人的身份与服务的namespace无关，所以用户账户是跨namespace的；而服务帐户对应的是一个运行中程序的身份，与特定namespace是相关的。
 
-### 名字空间（Namespace）
+### 命名空间（Namespace）
 
-名字空间为Kubernetes集群提供虚拟的隔离作用，Kubernetes集群初始有两个名字空间，分别是默认名字空间default和系统名字空间kube-system，除此以外，管理员可以可以创建新的名字空间满足需要。
+命名空间为Kubernetes集群提供虚拟的隔离作用，Kubernetes集群初始有两个命名空间，分别是默认命名空间default和系统命名空间kube-system，除此以外，管理员可以可以创建新的命名空间满足需要。
 
 ### RBAC访问授权
 
@@ -128,5 +128,5 @@ Kubernetes在1.3版本中发布了alpha版的基于角色的访问控制（Role-
 
 按照分布式系统一致性算法Paxos发明人计算机科学家[Leslie Lamport](http://research.microsoft.com/users/lamport/pubs/pubs.html)的理念，一个分布式系统有两类特性：安全性Safety和活性Liveness。安全性保证系统的稳定，保证系统不会崩溃，不会出现业务错误，不会做坏事，是严格约束的；活性使得系统可以提供功能，提高性能，增加易用性，让系统可以在用户“看到的时间内”做些好事，是尽力而为的。Kubernetes系统的设计理念正好与Lamport安全性与活性的理念不谋而合，也正是因为Kubernetes在引入功能和技术的时候，非常好地划分了安全性和活性，才可以让Kubernetes能有这么快版本迭代，快速引入像RBAC、Federation和PetSet这种新功能。
 
-\[1\] [http://www.infoq.com/cn/articles/kubernetes-and-cloud-native-applications-part01](http://www.infoq.com/cn/articles/kubernetes-and-cloud-native-applications-part01)
+原文地址：[《Kubernetes与云原生应用》系列之Kubernetes的系统架构与设计理念](http://www.infoq.com/cn/articles/kubernetes-and-cloud-native-applications-part01)
 

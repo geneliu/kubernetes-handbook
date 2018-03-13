@@ -40,7 +40,7 @@ API文档见[k8s-app-monitor-test](https://github.com/rootsongjc/k8s-app-monitor
 
 服务启动后需要更新ingress配置，在[ingress.yaml](../manifests/traefik-ingress/ingress.yaml)文件中增加以下几行：
 
-```Yaml
+```yaml
   - host: k8s-app-monitor-agent.jimmysong.io
     http:
       paths:
@@ -60,7 +60,7 @@ API文档见[k8s-app-monitor-test](https://github.com/rootsongjc/k8s-app-monitor
 
 当然你也可以加入到DNS中，为了简单起见我使用hosts。
 
-详见[边缘节点配置](practice/edge-node-configuration.md)。
+详见[边缘节点配置](../practice/edge-node-configuration.md)。
 
 在浏览器中访问http://k8s-app-monitor-agent.jimmysong.io
 

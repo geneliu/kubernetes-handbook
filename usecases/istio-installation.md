@@ -1,4 +1,4 @@
-# 安装istio
+# 安装并试用Istio service mesh
 
 本文根据官网的文档整理而成，步骤包括安装`istio 0.1.5`并创建一个bookinfo的微服务来测试istio的功能。
 
@@ -18,7 +18,7 @@
 
 下载Linux版本的当前最新版安装包
 
-```Shell
+```bash
 wget https://github.com/istio/istio/releases/download/0.1.5/istio-0.1.5-linux.tar.gz
 ```
 
@@ -129,7 +129,7 @@ docker.io/istio/proxy_debug:0.1.5
 
 我们暂时不开启[Istio Auth](https://istio.io/docs/concepts/network-and-auth/auth.html)。
 
-> 本文中用到的所有yaml文件中的`type: LoadBalancer`去掉，使用默认的ClusterIP，然后配置Traefik ingress，就可以在集群外部访问。请参考[安装Traefik ingress](practice/traefik-ingress-installation.md)。
+> 本文中用到的所有yaml文件中的`type: LoadBalancer`去掉，使用默认的ClusterIP，然后配置Traefik ingress，就可以在集群外部访问。请参考[安装Traefik ingress](../practice/traefik-ingress-installation.md)。
 
 ```bash
 kubectl apply -f install/kubernetes/istio.yaml
@@ -164,7 +164,7 @@ kubectl apply -f install/kubernetes/addons/zipkin.yaml
 
 在traefik ingress中增加增加以上几个服务的配置，同时增加istio-ingress配置。
 
-```Yaml
+```yaml
     - host: grafana.istio.io
       http:
         paths:
@@ -331,13 +331,13 @@ http://servicegraph.istio.io/dotviz
 
 可以用来查看服务间的依赖关系。
 
-访问http://servicegraph.istio.io/graph可以获得json格式的返回结果。
+访问 http://servicegraph.istio.io/graph 可以获得json格式的返回结果。
 
 ![ServiceGraph页面](../images/istio-servicegraph.jpg)
 
 ## 更进一步
 
-BookInfo示例中有三个版本的`reviews`，可以使用istio来配置路由请求，将流量分摊到不同版本的应用上。参考[Configuring Request Routing](https://istio.io/docs/tasks/request-routing.html)。
+BookInfo示例中有三个版本的`reviews`，可以使用istio来配置路由请求，将流量分发到不同版本的应用上。参考[Configuring Request Routing](https://istio.io/docs/tasks/request-routing.html)。
 
 还有一些更高级的功能，我们后续将进一步探索。
 

@@ -13,7 +13,7 @@ Kubernetes最终将对labels最终索引和反向索引用来优化查询和watc
 
 ## 动机
 
-Label能够将组织架构映射到系统架构上（就像是康威定律），这样能够更便于微服务的管理，你可以给object打s上如下类型的label：
+Label能够将组织架构映射到系统架构上（就像是康威定律），这样能够更便于微服务的管理，你可以给object打上如下类型的label：
 
 - `"release" : "stable"`, `"release" : "canary"`
 - `"environment" : "dev"`, `"environment" : "qa"`, `"environment" : "production"`
@@ -66,7 +66,7 @@ selector:
 
 在`Job`、`Deployment`、`ReplicaSet`和`DaemonSet`这些object中，支持*set-based*的过滤，例如：
 
-```Yaml
+```yaml
 selector:
   matchLabels:
     component: redis
@@ -81,7 +81,7 @@ selector:
 
 另外在node affinity和pod affinity中的label selector的语法又有些许不同，示例如下：
 
-```Yaml
+```yaml
   affinity:
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:

@@ -38,7 +38,7 @@ Deployment同样为Kubernetes的一个核心内容，主要职责同样是为了
 
 我们来创建一个特别简单的web服务，当你访问网页时，将输出一句版本信息。通过区分这句版本信息输出我们就可以断定升级是否完成。
 
-所有配置和代码见[manifests/test/rolling-update-test](manifests/test/rolling-update-test)目录。
+所有配置和代码见[../manifests/test/rolling-update-test](https://github.com/rootsongjc/kubernetes-handbook/blob/master/manifests/test/rolling-update-test)目录。
 
 **Web服务的代码main.go**
 
@@ -67,7 +67,7 @@ func main() {
 
 **创建Dockerfile**
 
-```Dockerfile
+```dockerfile
 FROM alpine:3.5
 MAINTAINER Jimmy Song<rootsongjc@gmail.com>
 ADD hellov2 /
@@ -82,7 +82,7 @@ ENTRYPOINT ["/hellov2"]
 
 修改`Makefile`中的`TAG`为新的版本号。
 
-```cmake
+```makefile
 all: build push clean
 .PHONY: build push clean
 
@@ -104,7 +104,7 @@ clean:
 
 **编译**
 
-```Shell
+```bash
 make all
 ```
 
@@ -116,7 +116,7 @@ make all
 
 配置文件`rolling-update-test.yaml`：
 
-```Yaml
+```yaml
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
@@ -151,7 +151,7 @@ spec:
 
 **部署service**
 
-```shell
+```bash
 kubectl create -f rolling-update-test.yaml
 ```
 
@@ -159,7 +159,7 @@ kubectl create -f rolling-update-test.yaml
 
 在`ingress.yaml`文件中增加新service的配置。
 
-```Yaml
+```yaml
   - host: rolling-update-test.traefik.io
     http:
       paths:
@@ -187,7 +187,7 @@ This is version 1.
 
 只需要将`rolling-update-test.yaml`文件中的`image`改成新版本的镜像名，然后执行：
 
-```shell
+```bash
 kubectl apply -f rolling-update-test.yaml
 ```
 

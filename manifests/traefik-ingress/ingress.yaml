@@ -33,3 +33,21 @@ spec:
         backend:
           serviceName: k8s-app-monitor-agent
           servicePort: 8080
+  - host: mean.jimmysong.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: orbiting-platypus-mean
+          servicePort: 80
+  - host: helm.jimmysong.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: monocular-monocular-ui
+          servicePort: 80
+      - path: /api/
+        backend:
+          serviceName: monocular-monocular-api
+          servicePort: 80

@@ -1,6 +1,6 @@
 # 使用Ceph做持久化存储创建MySQL集群
 
-本文中用到的 yaml 文件可以在 [../manifests/mariadb-cluster](../manifests/mariadb-cluster) 目录下找到。
+本文中用到的 yaml 文件可以在 [../manifests/mariadb-cluster](https://github.com/rootsongjc/kubernetes-handbook/blob/master/manifests/mariadb-cluster) 目录下找到。
 
 下面我们以部署一个高可用的 MySQL 集群为例，讲解如何使用 Ceph 做数据持久化，其中使用 StorageClass 动态创建 PV，Ceph 集群我们使用 kubernetes 集群外部的已有的集群，我们没有必要重新部署了。
 
@@ -37,7 +37,7 @@ Galera是一个MySQL(也支持MariaDB，Percona)的同步多主集群软件。
 
 ### 配置 Ceph
 
-关于 Ceph 的 yaml 文件可以在 [../manifest/cephfs](../manifests/cephfs) 目录下找到。
+关于 Ceph 的 yaml 文件可以在 [../manifest/mariadb-cluster](https://github.com/rootsongjc/kubernetes-handbook/tree/master/manifests/mariadb-cluster) 目录下找到。
 
 #### 1. 生成 Ceph secret
 
